@@ -10,15 +10,28 @@
     }
     buttons.forEach((button) => {
         button.addEventListener('click', (e) => {
+            if (equal_pressed === 1) {
+                screen.value = "";
+                equal_pressed = 0;
+            }
             let value = e.target.dataset.num;
             screen.value += value;
         })
     })
     equal.addEventListener('click', () => {
-        if (screen.value === " ") {
-            screen.value = " ";
-        } else {
-            screen.value = eval(screen.value);
+        equal_pressed = 1;
+        try {
+            let solution = eval(screen.value);
+            if (solution === "") {
+                solution = "";
+            }
+            if (Number.isInteger(solution)) {
+                screen.value = solution;
+            } else {
+                screen.value = solution.toFixed(2);
+            }
+        } catch (e) {
+            alert("Invalid Input!")
         }
     })
 
