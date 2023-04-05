@@ -31,17 +31,18 @@ form input {
     background-color: #222;
     border-radius: 10px;
     border: none;
+    outline: none;
     text-align: right;
     font-size: 2.3rem;
     padding: 2rem;
-    pointer-events: none;
+    /*pointer-events: none;*/
 }
 
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    padding: 30px;
+    padding: 25px;
 }
 
 button {
